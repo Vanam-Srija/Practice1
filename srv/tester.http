@@ -1,0 +1,50 @@
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService
+ 
+###Get service metadata document
+http://localhost:4004/odata/v4/CatalogService/$metadata
+ 
+###Get all Employee Data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###Get all Employee Data for single person using id /key
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+
+
+###Get all Employee Data Chunk by Chunk TOP and SKIP Pagination
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$skip=5&$top=2
+
+
+
+###Get all Employee Data contains name starts with 'Su' FILTER
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=contains(nameFirst,'Su')
+
+
+###Get all Employee Data filters data with firtname SELECT
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$select=nameFirst,nameLast
+
+
+
+###Get all Product Data  from CDSViews
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EB4052/To_Items
+
+
+###Get all Product Data  from CDSViews
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EB4052?$expand=To_Items
+
+###Get all Purchase orders
+http://localhost:4004/odata/v4/CatalogService/POs
+
+
+###Get all Purchase orders
+http://localhost:4004/odata/v4/CatalogService/POs/02BD2137-0890-1EEA-A6C2-BB55C1978999?$expand=Items
+
+
+###Get single PO
+POST http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B06B26F60052/CatalogService.boost
+Content-Type: application/json
+
+{}
+
+###Get function data for largest order
+http://localhost:4004/odata/v4/CatalogService/largestOrder()
